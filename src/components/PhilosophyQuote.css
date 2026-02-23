@@ -1,0 +1,82 @@
+.philosophy-section {
+    padding: 4rem 0;
+    background-color: var(--sand);
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.philosophy-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(193, 123, 94, 0.1) 100%);
+    pointer-events: none;
+}
+
+.philosophy-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.philosophy-quote {
+    position: relative;
+    text-align: center;
+}
+
+.quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--terracotta);
+    opacity: 0.3;
+    line-height: 1;
+    display: block;
+}
+
+.quote-mark.closing {
+    text-align: right;
+}
+
+.philosophy-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--charcoal);
+    margin: -1rem 0;
+    padding: 0 2rem;
+}
+
+.philosophy-decoration {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.philosophy-line {
+    width: 100px;
+    height: 2px;
+    background-color: var(--terracotta);
+    margin: 0 auto 1rem;
+}
+
+.philosophy-reflection {
+    font-size: 1rem;
+    color: var(--deep-blue);
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .philosophy-text {
+        font-size: 1.2rem;
+        padding: 0 1rem;
+    }
+
+    .quote-mark {
+        font-size: 3rem;
+    }
+}

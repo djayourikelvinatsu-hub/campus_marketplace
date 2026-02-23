@@ -1,0 +1,69 @@
+.quote-generator {
+    background: linear-gradient(135deg, var(--sand) 0%, var(--cream) 100%);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    border-left: 4px solid var(--terracotta);
+}
+
+.quote-content {
+    flex: 1;
+}
+
+.quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    color: var(--charcoal);
+}
+
+.quote-source {
+    font-size: 0.9rem;
+    color: var(--deep-blue);
+}
+
+.quote-btn {
+    background-color: var(--deep-blue);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.quote-btn:hover {
+    background-color: var(--terracotta);
+    transform: rotate(1deg);
+}
+
+.quote-icon {
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.quote-btn:hover .quote-icon {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+    .quote-generator {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .quote-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
