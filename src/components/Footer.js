@@ -61,7 +61,7 @@ const Footer = () => {
                         "There is no love of life without despair of life." — Be assured, we accept returns.
                     </p>
                     <p className="built-by" style={{ marginTop: '1rem', fontWeight: 'bold' }}>
-                        Built by KAD
+                        Built by KAD | <a href="mailto:Kelvinatsu213@gmail.com" style={{ color: 'inherit' }}>Kelvinatsu213@gmail.com</a>
                     </p>
                 </div>
             </div>

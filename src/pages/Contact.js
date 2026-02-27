@@ -7,6 +7,7 @@ const Contact = () => {
             <h2 className="section-title">Reach the Void</h2>
             <div className="contact-content">
                 <p>Have an inquiry about an order? Need to discuss the futility of existence?</p>
+                <p>You can reach me directly at: <strong><a href="mailto:Kelvinatsu213@gmail.com" style={{ color: 'var(--primary-color)' }}>Kelvinatsu213@gmail.com</a></strong></p>
                 <form className="contact-form" onSubmit={(e) => { e.preventDefault(); alert("Message sent into the abyss."); }}>
                     <div className="form-group">
                         <label>Name</label>
