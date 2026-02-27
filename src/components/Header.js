@@ -19,7 +19,11 @@ const Header = ({ cartCount, toggleDarkMode, isDarkMode, onCartClick }) => {
             <div className="container header-container">
                 <div className="logo">
                     <h1>Campus Marketplace</h1>
-                    <span className="logo-subtitle">Buy, Sell, Trade</span>
+                    <div className="logo-actions">
+                        <Link to="/shop" className="logo-action-btn">Buy</Link>
+                        <Link to="/contact" className="logo-action-btn">Sell</Link>
+                        <Link to="/contact" className="logo-action-btn">Trade</Link>
+                    </div>
                 </div>
 
                 <button

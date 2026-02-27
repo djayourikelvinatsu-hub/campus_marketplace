@@ -28,6 +28,26 @@
     font-style: italic;
 }
 
+.logo-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.logo-action-btn {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--terracotta);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--terracotta);
+    transition: var(--transition);
+}
+
+.logo-action-btn:hover {
+    color: var(--deep-blue);
+    border-bottom: 1px solid var(--deep-blue);
+}
+
 .nav-list {
     display: flex;
     list-style: none;
