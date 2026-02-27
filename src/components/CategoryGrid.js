@@ -2,16 +2,16 @@ import React from 'react';
 import './CategoryGrid.css';
 
 const categories = [
-    { name: 'Rare Books', icon: '📚', description: 'First editions & philosophical texts' },
-    { name: 'Art Prints', icon: '🎨', description: 'Mediterranean inspired art' },
-    { name: 'Ceramics', icon: '🏺', description: 'Handmade Algerian pottery' },
-    { name: 'Textiles', icon: '🧣', description: 'Linen & olive wood items' }
+    { name: 'Textbooks', icon: '📚', description: 'Used course materials' },
+    { name: 'Electronics', icon: '💻', description: 'Laptops, headphones, & calculators' },
+    { name: 'Furniture', icon: '🪑', description: 'Dorm room essentials' },
+    { name: 'Supplies', icon: '✏️', description: 'Stationery & desk accessories' }
 ];
 
 const CategoryGrid = ({ onCategoryClick }) => {
     return (
         <section className="categories">
-            <h2 className="section-title">The Absurdist's Collection</h2>
+            <h2 className="section-title">Shop by Category</h2>
             <div className="category-grid">
                 {categories.map((category, index) => (
                     <div key={index} className="category-card">

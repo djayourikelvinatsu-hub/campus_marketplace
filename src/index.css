@@ -1,23 +1,25 @@
 :root {
-  --cream: #F5F5F5;
-  --charcoal: #2C2C2C;
-  --terracotta: #C17B5E;
-  --deep-blue: #2C4A5E;
-  --sand: #E6D5B8;
-  --olive: #7A8B6B;
+  --cream: #F8F9FA;
+  --charcoal: #212529;
+  --terracotta: #0056B3;
+  /* Using blue for primary actions */
+  --deep-blue: #0D6EFD;
+  --sand: #E9ECEF;
+  --olive: #198754;
+  /* Using green for success/accents */
   --white: #FFFFFF;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
 }
 
 [data-theme="dark"] {
-  --cream: #1A1A1A;
-  --charcoal: #E5E5E5;
-  --terracotta: #B86B4A;
-  --deep-blue: #4A6F85;
-  --sand: #8B7E6A;
-  --olive: #5D6B4F;
-  --white: #2D2D2D;
+  --cream: #212529;
+  --charcoal: #F8F9FA;
+  --terracotta: #4D96FF;
+  --deep-blue: #0D6EFD;
+  --sand: #343A40;
+  --olive: #20C997;
+  --white: #2C3034;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -35,7 +37,12 @@ body {
   transition: var(--transition);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
 }
@@ -55,6 +62,7 @@ h1, h2, h3, h4, h5, h6 {
   0% {
     background-color: hsl(200, 20%, 80%);
   }
+
   100% {
     background-color: hsl(200, 20%, 95%);
   }

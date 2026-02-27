@@ -45,6 +45,7 @@ app.get('/api/quotes', (req, res) => {
     });
 });
 
+
 // Process checkout and save order
 app.post('/api/checkout', (req, res) => {
     const { cartItems, paymentInfo, total } = req.body;

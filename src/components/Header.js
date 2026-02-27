@@ -9,7 +9,7 @@ const Header = ({ cartCount, toggleDarkMode, isDarkMode, onCartClick }) => {
     const navItems = [
         { label: 'Home', path: '/' },
         { label: 'Shop', path: '/shop' },
-        { label: 'About Camus', path: '/about' },
+        { label: 'About Us', path: '/about' },
         { label: 'Journal', path: '/journal' },
         { label: 'Contact', path: '/contact' }
     ];
@@ -18,8 +18,8 @@ const Header = ({ cartCount, toggleDarkMode, isDarkMode, onCartClick }) => {
         <header className="header">
             <div className="container header-container">
                 <div className="logo">
-                    <h1>The Absurd Marketplace</h1>
-                    <span className="logo-subtitle">The Stranger Marketplace</span>
+                    <h1>Campus Marketplace</h1>
+                    <span className="logo-subtitle">Buy, Sell, Trade</span>
                 </div>
 
                 <button

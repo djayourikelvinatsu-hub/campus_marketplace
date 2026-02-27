@@ -73,7 +73,7 @@ const App = () => {
   };
 
   const handleCheckout = (data) => {
-    alert(data?.message || "Thank you for your Absurdist purchase! (Mock Payment Successful)");
+    alert(data?.message || "Thank you for your purchase! (Mock Payment Successful)");
     setCartItems([]);
     setIsCartOpen(false);
   };
