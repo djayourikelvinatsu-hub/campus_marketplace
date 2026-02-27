@@ -61,7 +61,15 @@ const db = new sqlite3.Database(dbPath, (err) => {
                         ['Kierkegaard Leap of Faith Poster', 40, 'Art Prints', 'https://images.unsplash.com/photo-1518998053401-a47781b0fce0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Minimalist typography 18x24 print'],
                         ['Dostoevsky Complete Works volume', 175, 'Rare Books', 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Leather-bound omnibus edition'],
                         ['Wool Overcoat - The Thinker', 250, 'Apparel', 'https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Classic Parisian winter coat'],
-                        ['Simone de Beauvoir Desk Plaque', 55, 'Ceramics', 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Inspirational desk weight']
+                        ['Simone de Beauvoir Desk Plaque', 55, 'Ceramics', 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Inspirational desk weight'],
+                        ['The Stranger - First Edition', 500, 'Rare Books', 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', '1942 first edition with original dust jacket'],
+                        ['Thus Spoke Zarathustra', 300, 'Rare Books', 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Leather-bound philosophical classic'],
+                        ['Hand-painted Absurdist Vase', 120, 'Ceramics', 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Abstract geometric ceramic piece'],
+                        ['Rustic Clay Pitcher', 90, 'Ceramics', 'https://images.unsplash.com/photo-1596205891392-563b7858cbe5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Handmade terracotta water pitcher'],
+                        ['Sisyphus Abstract Lithograph', 150, 'Art Prints', 'https://images.unsplash.com/photo-1579783901586-d88db74b4fe4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Limited edition lithograph illustrating the struggle'],
+                        ['Algiers Cityscape Canvas', 200, 'Art Prints', 'https://images.unsplash.com/photo-1578308432360-1e5b1ab5378c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Oil painting of the Mediterranean coast'],
+                        ['Merino Wool Throw Blanket', 110, 'Textiles', 'https://images.unsplash.com/photo-1580870059877-334338575a06?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Heavy warm blanket for reading sessions'],
+                        ['Linen Minimalist Tote', 35, 'Textiles', 'https://images.unsplash.com/photo-1622560480654-d96214fdc887?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Undyed natural linen carrier bag']
                     ];
                     products.forEach(p => stmt.run(p));
                     stmt.finalize();
