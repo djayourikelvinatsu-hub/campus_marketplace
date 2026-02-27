@@ -14,3 +14,9 @@
 .about-content strong {
     color: var(--text-color);
 }
+
+@media (max-width: 768px) {
+    .about-page {
+        padding: 3rem 1rem;
+    }
+}
