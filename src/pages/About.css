@@ -1,0 +1,16 @@
+.about-page {
+    padding: 6rem 2rem;
+    min-height: 80vh;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: var(--secondary-color);
+}
+
+.about-content strong {
+    color: var(--text-color);
+}

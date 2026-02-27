@@ -1,12 +1,14 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import CategoryGrid from './components/CategoryGrid';
-import ProductGrid from './components/ProductGrid';
-import PhilosophyQuote from './components/PhilosophyQuote';
 import Footer from './components/Footer';
-import QuoteGenerator from './components/QuoteGenerator';
 import CartModal from './components/CartModal';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Shop from './pages/Shop';
+import Journal from './pages/Journal';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import ProductDetail from './pages/ProductDetail';
 import './App.css';
 
 const App = () => {
@@ -89,39 +91,54 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <Header
-        cartCount={getCartCount()}
-        onCartClick={() => setIsCartOpen(true)}
-        toggleDarkMode={toggleDarkMode}
-        isDarkMode={isDarkMode}
-      />
-      <main>
-        <Hero />
-        <div className="container">
-          <QuoteGenerator />
-          <CategoryGrid onCategoryClick={handleCategoryClick} />
-          <PhilosophyQuote />
-          <ProductGrid
-            addToCart={addToCart}
-            wishlist={wishlist}
-            toggleWishlist={toggleWishlist}
-            isLoading={isLoading}
-            activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
-          />
-        </div>
-      </main>
-      <Footer />
+    <Router>
+      <div className="app">
+        <Header
+          cartCount={getCartCount()}
+          onCartClick={() => setIsCartOpen(true)}
+          toggleDarkMode={toggleDarkMode}
+          isDarkMode={isDarkMode}
+        />
+        <main>
+          <Routes>
+            <Route path="/" element={
+              <Home
+                onCategoryClick={handleCategoryClick}
+                addToCart={addToCart}
+                wishlist={wishlist}
+                toggleWishlist={toggleWishlist}
+                isLoading={isLoading}
+              />
+            } />
+            <Route path="/shop" element={
+              <Shop
+                addToCart={addToCart}
+                wishlist={wishlist}
+                toggleWishlist={toggleWishlist}
+                isLoading={isLoading}
+                activeCategory={activeCategory}
+                setActiveCategory={setActiveCategory}
+              />
+            } />
+            <Route path="/journal" element={<Journal />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/product/:id" element={
+              <ProductDetail addToCart={addToCart} wishlist={wishlist} toggleWishlist={toggleWishlist} />
+            } />
+          </Routes>
+        </main>
+        <Footer />
 
-      <CartModal
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        cartItems={cartItems}
-        updateQuantity={updateCartItemQuantity}
-        onCheckout={handleCheckout}
-      />
-    </div>
+        <CartModal
+          isOpen={isCartOpen}
+          onClose={() => setIsCartOpen(false)}
+          cartItems={cartItems}
+          updateQuantity={updateCartItemQuantity}
+          onCheckout={handleCheckout}
+        />
+      </div>
+    </Router>
   );
 };
 

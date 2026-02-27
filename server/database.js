@@ -52,7 +52,16 @@ const db = new sqlite3.Database(dbPath, (err) => {
                         ['Mediterranean Linen Scarf', 65, 'Textiles', 'https://images.unsplash.com/photo-1584030373081-f37b7a8a3b6d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Hand-dyed with natural pigments'],
                         ['Camus Philosophy Prints Set', 120, 'Art Prints', 'https://images.unsplash.com/photo-1579783902614-a3fb2367d3c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Set of 3 abstract prints with quotes'],
                         ['The Stranger - Annotated Copy', 95, 'Rare Books', 'https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', '1946 first American edition with critical essays'],
-                        ['Philosophy Journal - Linen Bound', 45, 'Textiles', 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Hand-bound journal with blank pages']
+                        ['Philosophy Journal - Linen Bound', 45, 'Textiles', 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Hand-bound journal with blank pages'],
+                        ['Existentialist Coffee Mug', 22, 'Ceramics', 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Matte black mug for your morning despair'],
+                        ['Nietzsche "Amor Fati" Hoodie', 60, 'Apparel', 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Embroidered heavy cotton hoodie'],
+                        ['Sartre "No Exit" Tote Bag', 28, 'Apparel', 'https://images.unsplash.com/photo-1597520408226-95bde2056942?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Eco-friendly canvas tote for your books'],
+                        ['Brass Bookmark Collection', 35, 'Stationery', 'https://images.unsplash.com/photo-1588691515286-6ba12d7b43a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Three brass bookmarks with philosophical engravings'],
+                        ['Fountain Pen - Midnight Blue', 110, 'Stationery', 'https://images.unsplash.com/photo-1585336261022-680e295ce3fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Classic writing instrument for journaling'],
+                        ['Kierkegaard Leap of Faith Poster', 40, 'Art Prints', 'https://images.unsplash.com/photo-1518998053401-a47781b0fce0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Minimalist typography 18x24 print'],
+                        ['Dostoevsky Complete Works volume', 175, 'Rare Books', 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Leather-bound omnibus edition'],
+                        ['Wool Overcoat - The Thinker', 250, 'Apparel', 'https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Classic Parisian winter coat'],
+                        ['Simone de Beauvoir Desk Plaque', 55, 'Ceramics', 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80', 'Inspirational desk weight']
                     ];
                     products.forEach(p => stmt.run(p));
                     stmt.finalize();
@@ -64,11 +73,19 @@ const db = new sqlite3.Database(dbPath, (err) => {
                     console.log('Seeding quotes...');
                     const stmt = db.prepare('INSERT INTO quotes (text, source) VALUES (?, ?)');
                     const quotes = [
-                        ["You will never be happy if you continue to search for what happiness consists of.", "The Myth of Sisyphus"],
-                        ["Should I kill myself, or have a cup of coffee?", "Notebooks"],
-                        ["Nobody realizes that some people expend tremendous energy merely to be normal.", "Notebooks"],
-                        ["The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion.", "The Rebel"],
-                        ["I opened myself to the gentle indifference of the world.", "The Stranger"]
+                        ["You will never be happy if you continue to search for what happiness consists of.", "Albert Camus, The Myth of Sisyphus"],
+                        ["Should I kill myself, or have a cup of coffee?", "Albert Camus, Notebooks"],
+                        ["Nobody realizes that some people expend tremendous energy merely to be normal.", "Albert Camus, Notebooks"],
+                        ["The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion.", "Albert Camus, The Rebel"],
+                        ["I opened myself to the gentle indifference of the world.", "Albert Camus, The Stranger"],
+                        ["Hell is other people.", "Jean-Paul Sartre, No Exit"],
+                        ["Man is condemned to be free.", "Jean-Paul Sartre, Being and Nothingness"],
+                        ["He who has a why to live for can bear almost any how.", "Friedrich Nietzsche, Twilight of the Idols"],
+                        ["God is dead. God remains dead. And we have killed him.", "Friedrich Nietzsche, The Gay Science"],
+                        ["To dare is to lose one's footing momentarily. Not to dare is to lose oneself.", "Søren Kierkegaard"],
+                        ["Life can only be understood backwards; but it must be lived forwards.", "Søren Kierkegaard"],
+                        ["One is not born, but rather becomes, a woman.", "Simone de Beauvoir, The Second Sex"],
+                        ["Pain and suffering are always inevitable for a large intelligence and a deep heart.", "Fyodor Dostoevsky, Crime and Punishment"]
                     ];
                     quotes.forEach(q => stmt.run(q));
                     stmt.finalize();

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './ProductCard.css';
 
@@ -8,12 +9,14 @@ const ProductCard = React.memo(({ product, addToCart, isWishlisted, toggleWishli
     return (
         <div className="product-card">
             <div className="product-image-container">
-                <img
-                    src={image}
-                    alt={name}
-                    className="product-image"
-                    loading="lazy"
-                />
+                <Link to={`/product/${id}`}>
+                    <img
+                        src={image}
+                        alt={name}
+                        className="product-image"
+                        loading="lazy"
+                    />
+                </Link>
                 <button
                     className={`wishlist-btn ${isWishlisted ? 'active' : ''}`}
                     onClick={() => toggleWishlist(id)}
@@ -25,7 +28,9 @@ const ProductCard = React.memo(({ product, addToCart, isWishlisted, toggleWishli
             </div>
 
             <div className="product-info">
-                <h3 className="product-name">{name}</h3>
+                <Link to={`/product/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <h3 className="product-name">{name}</h3>
+                </Link>
                 <p className="product-description">{description}</p>
                 <div className="product-footer">
                     <span className="product-price">${price}</span>

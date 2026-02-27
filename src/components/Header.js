@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import CartIcon from './CartIcon';
 import './Header.css';
 
@@ -6,11 +7,11 @@ const Header = ({ cartCount, toggleDarkMode, isDarkMode, onCartClick }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navItems = [
-        { label: 'Home', id: 'home' },
-        { label: 'Shop', id: 'shop' },
-        { label: 'About Camus', id: 'about' },
-        { label: 'Journal', id: 'journal' },
-        { label: 'Contact', id: 'contact' }
+        { label: 'Home', path: '/' },
+        { label: 'Shop', path: '/shop' },
+        { label: 'About Camus', path: '/about' },
+        { label: 'Journal', path: '/journal' },
+        { label: 'Contact', path: '/contact' }
     ];
 
     return (
@@ -33,9 +34,9 @@ const Header = ({ cartCount, toggleDarkMode, isDarkMode, onCartClick }) => {
                     <ul className="nav-list">
                         {navItems.map((item, index) => (
                             <li key={index} className="nav-item">
-                                <a href={`#${item.id}`} className="nav-link">
+                                <Link to={item.path} className="nav-link" onClick={() => setIsMenuOpen(false)}>
                                     {item.label}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>

@@ -19,6 +19,21 @@ app.get('/api/products', (req, res) => {
     });
 });
 
+// Get single product
+app.get('/api/products/:id', (req, res) => {
+    db.get('SELECT * FROM products WHERE id = ?', [req.params.id], (err, row) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        if (!row) {
+            res.status(404).json({ error: 'Product not found' });
+            return;
+        }
+        res.json(row);
+    });
+});
+
 // Get all quotes
 app.get('/api/quotes', (req, res) => {
     db.all('SELECT * FROM quotes', [], (err, rows) => {

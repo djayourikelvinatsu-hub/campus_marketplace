@@ -1,0 +1,131 @@
+.product-detail-page {
+    padding: 6rem 2rem;
+    min-height: 80vh;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.back-link:hover {
+    color: var(--primary-color);
+    transform: translateX(-5px);
+}
+
+.product-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.detail-image {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.detail-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+[data-theme='dark'] .detail-image {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.detail-category {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.detail-name {
+    font-size: 3rem;
+    color: var(--text-color);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.detail-price {
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-family: monospace;
+    font-weight: bold;
+    margin: 0;
+}
+
+.detail-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--secondary-color);
+}
+
+.detail-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.add-to-cart-btn.large {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    flex: 1;
+}
+
+.wishlist-icon.large {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.wishlist-icon.large:hover,
+.wishlist-icon.large.active {
+    background: #ff4757;
+    color: white;
+    border-color: #ff4757;
+}
+
+.loading-container,
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    font-style: italic;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .product-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .detail-name {
+        font-size: 2.2rem;
+    }
+}

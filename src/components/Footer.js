@@ -60,6 +60,9 @@ const Footer = () => {
                     <p className="existential-note">
                         "There is no love of life without despair of life." — Be assured, we accept returns.
                     </p>
+                    <p className="built-by" style={{ marginTop: '1rem', fontWeight: 'bold' }}>
+                        Built by KAD
+                    </p>
                 </div>
             </div>
         </footer>

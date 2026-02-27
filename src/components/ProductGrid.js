@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import './ProductGrid.css';
 
-const ProductGrid = ({ addToCart, wishlist, toggleWishlist, isLoading: initialLoading, activeCategory, setActiveCategory }) => {
+const ProductGrid = ({ addToCart, wishlist, toggleWishlist, isLoading: initialLoading, activeCategory, setActiveCategory, previewLimit, hideFilters }) => {
     const [products, setProducts] = useState([]);
     const [apiLoading, setApiLoading] = useState(true);
     const [sortBy, setSortBy] = useState('featured');
@@ -32,32 +32,38 @@ const ProductGrid = ({ addToCart, wishlist, toggleWishlist, isLoading: initialLo
         return 0;
     });
 
+    const displayedProducts = previewLimit ? sortedProducts.slice(0, previewLimit) : sortedProducts;
+
     return (
         <section id="shop" className="products">
             <div className="products-header">
                 <h2 className="section-title">Featured Items</h2>
-                <div className="filter-bar">
-                    <select
-                        value={activeCategory}
-                        onChange={(e) => setActiveCategory(e.target.value)}
-                        className="filter-select"
-                    >
-                        <option value="all">All Categories</option>
-                        <option value="rare books">Rare Books</option>
-                        <option value="art prints">Art Prints</option>
-                        <option value="ceramics">Ceramics</option>
-                        <option value="textiles">Textiles</option>
-                    </select>
-                    <select
-                        value={sortBy}
-                        onChange={(e) => setSortBy(e.target.value)}
-                        className="filter-select"
-                    >
-                        <option value="featured">Featured</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                    </select>
-                </div>
+                {!hideFilters && (
+                    <div className="filter-bar">
+                        <select
+                            value={activeCategory}
+                            onChange={(e) => setActiveCategory(e.target.value)}
+                            className="filter-select"
+                        >
+                            <option value="all">All Categories</option>
+                            <option value="rare books">Rare Books</option>
+                            <option value="art prints">Art Prints</option>
+                            <option value="ceramics">Ceramics</option>
+                            <option value="textiles">Textiles</option>
+                            <option value="apparel">Apparel</option>
+                            <option value="stationery">Stationery</option>
+                        </select>
+                        <select
+                            value={sortBy}
+                            onChange={(e) => setSortBy(e.target.value)}
+                            className="filter-select"
+                        >
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
+                    </div>
+                )}
             </div>
 
             <div className="product-grid">
@@ -71,7 +77,7 @@ const ProductGrid = ({ addToCart, wishlist, toggleWishlist, isLoading: initialLo
                         </div>
                     ))
                 ) : (
-                    sortedProducts.map(product => (
+                    displayedProducts.map(product => (
                         <ProductCard
                             key={product.id}
                             product={product}
