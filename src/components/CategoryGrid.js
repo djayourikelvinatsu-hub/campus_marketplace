@@ -8,7 +8,7 @@ const categories = [
     { name: 'Textiles', icon: '🧣', description: 'Linen & olive wood items' }
 ];
 
-const CategoryGrid = () => {
+const CategoryGrid = ({ onCategoryClick }) => {
     return (
         <section className="categories">
             <h2 className="section-title">The Absurdist's Collection</h2>
@@ -18,7 +18,12 @@ const CategoryGrid = () => {
                         <div className="category-icon">{category.icon}</div>
                         <h3>{category.name}</h3>
                         <p>{category.description}</p>
-                        <button className="category-btn">Explore →</button>
+                        <button
+                            className="category-btn"
+                            onClick={() => onCategoryClick(category.name.toLowerCase())}
+                        >
+                            Explore →
+                        </button>
                     </div>
                 ))}
             </div>

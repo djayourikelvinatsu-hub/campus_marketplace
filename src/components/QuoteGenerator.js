@@ -1,21 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './QuoteGenerator.css';
 
-const quotes = [
-    { text: "You will never be happy if you continue to search for what happiness consists of.", source: "The Myth of Sisyphus" },
-    { text: "Should I kill myself, or have a cup of coffee?", source: "Notebooks" },
-    { text: "Nobody realizes that some people expend tremendous energy merely to be normal.", source: "Notebooks" },
-    { text: "The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion.", source: "The Rebel" },
-    { text: "I opened myself to the gentle indifference of the world.", source: "The Stranger" }
-];
-
 const QuoteGenerator = () => {
-    const [currentQuote, setCurrentQuote] = useState(quotes[0]);
+    const [quotes, setQuotes] = useState([]);
+    const [currentQuote, setCurrentQuote] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        fetch('/api/quotes')
+            .then(res => res.json())
+            .then(data => {
+                setQuotes(data);
+                if (data.length > 0) {
+                    setCurrentQuote(data[0]);
+                }
+                setIsLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to fetch quotes:", err);
+                setIsLoading(false);
+            });
+    }, []);
 
     const generateQuote = () => {
         const randomIndex = Math.floor(Math.random() * quotes.length);
         setCurrentQuote(quotes[randomIndex]);
     };
+
+    if (isLoading || !currentQuote) {
+        return (
+            <div id="journal" className="quote-generator">
+                <div className="quote-content">
+                    <p className="quote-text">Loading wisdom...</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div id="journal" className="quote-generator">

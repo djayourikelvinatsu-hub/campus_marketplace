@@ -6,6 +6,7 @@ import ProductGrid from './components/ProductGrid';
 import PhilosophyQuote from './components/PhilosophyQuote';
 import Footer from './components/Footer';
 import QuoteGenerator from './components/QuoteGenerator';
+import CartModal from './components/CartModal';
 import './App.css';
 
 const App = () => {
@@ -14,6 +15,13 @@ const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [wishlist, setWishlist] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  const handleCategoryClick = (category) => {
+    setActiveCategory(category);
+    // Scroll to the shop section
+    document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
     // Simulate loading
@@ -62,8 +70,8 @@ const App = () => {
     ));
   };
 
-  const handleCheckout = () => {
-    alert("Thank you for your Absurdist purchase! (Mock Payment Successful)");
+  const handleCheckout = (data) => {
+    alert(data?.message || "Thank you for your Absurdist purchase! (Mock Payment Successful)");
     setCartItems([]);
     setIsCartOpen(false);
   };
@@ -92,17 +100,27 @@ const App = () => {
         <Hero />
         <div className="container">
           <QuoteGenerator />
-          <CategoryGrid />
+          <CategoryGrid onCategoryClick={handleCategoryClick} />
           <PhilosophyQuote />
           <ProductGrid
             addToCart={addToCart}
             wishlist={wishlist}
             toggleWishlist={toggleWishlist}
             isLoading={isLoading}
+            activeCategory={activeCategory}
+            setActiveCategory={setActiveCategory}
           />
         </div>
       </main>
       <Footer />
+
+      <CartModal
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cartItems={cartItems}
+        updateQuantity={updateCartItemQuantity}
+        onCheckout={handleCheckout}
+      />
     </div>
   );
 };

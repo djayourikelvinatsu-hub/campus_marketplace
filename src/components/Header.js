@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CartIcon from './CartIcon';
 import './Header.css';
 
-const Header = ({ cartCount, toggleDarkMode, isDarkMode }) => {
+const Header = ({ cartCount, toggleDarkMode, isDarkMode, onCartClick }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navItems = [
@@ -49,7 +49,7 @@ const Header = ({ cartCount, toggleDarkMode, isDarkMode }) => {
                     >
                         {isDarkMode ? '☀️' : '🌙'}
                     </button>
-                    <CartIcon count={cartCount} />
+                    <CartIcon count={cartCount} onClick={onCartClick} />
                 </div>
             </div>
         </header>

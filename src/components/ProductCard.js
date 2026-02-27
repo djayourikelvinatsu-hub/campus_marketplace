@@ -31,7 +31,7 @@ const ProductCard = React.memo(({ product, addToCart, isWishlisted, toggleWishli
                     <span className="product-price">${price}</span>
                     <button
                         className="add-to-cart-btn"
-                        onClick={addToCart}
+                        onClick={() => addToCart(product)}
                     >
                         Add to Cart
                     </button>
