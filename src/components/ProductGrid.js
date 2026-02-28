@@ -52,6 +52,10 @@ const ProductGrid = ({ addToCart, wishlist, toggleWishlist, isLoading: initialLo
                             <option value="textiles">Textiles</option>
                             <option value="apparel">Apparel</option>
                             <option value="stationery">Stationery</option>
+                            <option value="textbooks">Textbooks</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="furniture">Furniture</option>
+                            <option value="supplies">Supplies</option>
                         </select>
                         <select
                             value={sortBy}
