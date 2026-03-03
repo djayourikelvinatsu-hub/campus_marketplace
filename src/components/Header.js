@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CartIcon from './CartIcon';
+import Logo from './Logo';
 import './Header.css';
 
 const Header = ({ cartCount, toggleDarkMode, isDarkMode, onCartClick }) => {
@@ -18,7 +19,9 @@ const Header = ({ cartCount, toggleDarkMode, isDarkMode, onCartClick }) => {
         <header className="header">
             <div className="container header-container">
                 <div className="logo">
-                    <h1>Campus Marketplace</h1>
+                    <Link to="/" style={{ textDecoration: 'none' }}>
+                        <Logo />
+                    </Link>
                     <div className="logo-actions">
                         <Link to="/shop" className="logo-action-btn">Buy</Link>
                         <Link to="/contact" className="logo-action-btn">Sell</Link>
